@@ -100,6 +100,15 @@ function runEnter() {
     }
     else if (inputdate === "" && inputcity === ""){
         var filteredData = tableData.filter(ovni => ovni.shape === inputshape && ovni.state === inputstate && ovni.country === inputcountry);
+    }
+    else if (inputdate === "" && inputstate === ""){
+        var filteredData = tableData.filter(ovni => ovni.shape === inputshape && ovni.city === inputcity && ovni.country === inputcountry);
+    }
+    else if (inputdate === "" && inputshape === ""){
+        var filteredData = tableData.filter(ovni => ovni.state === inputstate && ovni.city === inputcity && ovni.country === inputcountry);
+    }
+    else if (inputshape === ""){
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.state === inputstate && ovni.country === inputcountry && ovni.city === inputcity);
     }    
     ;
 
