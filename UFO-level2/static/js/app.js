@@ -133,5 +133,13 @@ function runEnter() {
 
     console.log(filteredData);
 
+    filteredData.forEach(function(visualization) {
+        var row = tbody.append("tr");
+        Object.entries(visualization).forEach(function([key, value]) {
+        var cell = row.append("td");
+        cell.text(value);
+        });
+        });
+
 };
 
