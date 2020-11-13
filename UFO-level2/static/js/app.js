@@ -109,8 +109,22 @@ function runEnter() {
     }
     else if (inputshape === ""){
         var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.state === inputstate && ovni.country === inputcountry && ovni.city === inputcity);
-    }    
-    ;
+    }
+    else if (inputstate === ""){
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.shape === inputshape && ovni.country === inputcountry && ovni.city === inputcity);
+    } 
+    else if (inputcity === ""){
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.shape === inputshape && ovni.country === inputcountry && ovni.state === inputstate);
+    }
+    else if (inputcountry === ""){
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.shape === inputshape && ovni.city === inputcity && ovni.state === inputstate);
+    }
+    else if (inputdate === ""){
+        var filteredData = tableData.filter(ovni => ovni.country === inputcountry && ovni.shape === inputshape && ovni.city === inputcity && ovni.state === inputstate);
+    }
+    else {
+        var filteredData = tableData.filter(ovni => ovni.country === inputcountry && ovni.shape === inputshape && ovni.city === inputcity && ovni.state === inputstate && ovni.datetime === inputdate);
+    };
 
     var tbody = d3.select("#tbody");
     
