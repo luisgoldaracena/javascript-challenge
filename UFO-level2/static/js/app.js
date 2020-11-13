@@ -49,13 +49,21 @@ function runEnter() {
     }
     else if (inputcity === "" && inputstate === "" && inputcountry === "") {
         var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.shape === inputshape);
-    };
+    }
+    else if (inputcity === "" && inputstate === "" && inputshape === "") {
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.country === inputcountry);
+    }
+    else if (inputcity === "" && inputcountry === "" && inputshape === "") {
+        var filteredData = tableData.filter(ovni => ovni.datetime === inputdate && ovni.state === inputstate);
+    }
+    ;
     
 
     var tbody = d3.select("#tbody");
     
     tbody.html("");
 
+    console.log(inputstate);
     console.log(filteredData);
 
 };
